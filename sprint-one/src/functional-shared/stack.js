@@ -25,7 +25,7 @@ var Stack = function() {
   var newStack = {
     storage: {},
   };
-  extend(newStack, stackMethods);
+  _.extend(newStack, stackMethods);
   return newStack;
 
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
