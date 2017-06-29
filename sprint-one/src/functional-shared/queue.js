@@ -4,7 +4,7 @@ var Queue = function() {
   newQueue.first = 0;
   newQueue.last = 0;
 
-  extend(newQueue, queueMethods);
+  _.extend(newQueue, queueMethods);
   return newQueue;
 };
 
