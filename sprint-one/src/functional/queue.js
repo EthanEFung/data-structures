@@ -13,19 +13,17 @@ var Queue = function() {
     storage[endIdx] = value;
     endIdx++;
     size++;
-    console.log('storage is ', storage);
   };
 
   someInstance.dequeue = function() {
-    if(startIdx !== endIdx) {
+    if (startIdx !== endIdx) {
       var dequeued = storage[startIdx];
-      delete storage[startIdx]
+      delete storage[startIdx];
       startIdx++;
       size--;
-      console.log('storage is ', storage, dequeued);
+
       return dequeued;
-    }
-   
+    } 
   };
 
   someInstance.size = function() {
@@ -35,14 +33,3 @@ var Queue = function() {
   return someInstance;
 };
 
-var queue = Queue();
-
-
-function test () {
-  queue.enqueue('a');
-  queue.enqueue('b');
-  queue.dequeue();
-
-
-}
-test();
