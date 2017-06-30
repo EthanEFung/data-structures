@@ -51,11 +51,10 @@ var Node = function(value) {
   return node;
 };
 
-var myNode = 10;
-var yourNode = 15;
-var myLinkedList = LinkedList();
-myLinkedList.addToTail(10);
-console.log(myLinkedList);
+
+// var myLinkedList = LinkedList();
+// myLinkedList.addToTail(10);
+// console.log(myLinkedList);
 
 
 
