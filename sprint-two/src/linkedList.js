@@ -3,29 +3,42 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
 
-  list.addToTail = function(node) {
-
+  list.addToTail = function(value) {
+    var newNode = Node(value);
     if (list.head === null) {
-
-      list.head = value;
-      // console.log('This is the head when no head is assigned', list.head);
-
+      list.head = newNode;
+      list.tail = newNode;
     } else if (list.tail === null) {
-      list.tail = value;
-      list.head.next = value;
+      list.tail = newNode;
+      list.head.next = newNode;
     } else {
-      list.tail.next = value;
-      list.tail = value;
-      // console.log('This is the head when head is defined', list.head, 'and tail is', list.tail);
+      list.tail.next = newNode;
+      list.tail = newNode;
     }
   };
 
   list.removeHead = function() {
+    var lastHead = list.head;
+    list.head = list.head.next;
+    return lastHead.value;
   };
 
   list.contains = function(target) {
+    var isTheNodeTheTail = function(currentNode) {
+      return list.tail === currentNode;
+    };
+    var checkTheValue = function(currentNode) {
+      if(currentNode.value === target) {
+        return true;
+      } else if (isTheNodeTheTail(currentNode)) {
+        return false;
+      } else {
+        var nextNode = currentNode.next;
+        return checkTheValue(nextNode);
+      }
+    };
+    return checkTheValue(list.head);
   };
-
   return list;
 };
 
@@ -44,16 +57,6 @@ var myLinkedList = LinkedList();
 myLinkedList.addToTail(10);
 console.log(myLinkedList);
 
-
-
-// greeter = function() {
-//   var greeting = 'HI'
-//   return greeting
-// }
-
-// console.log(greeter())
-
-// var a = greeter()
 
 
 /*
