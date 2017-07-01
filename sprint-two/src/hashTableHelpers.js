@@ -54,6 +54,10 @@ var getIndexBelowMaxForKey = function(str, max) {
   return hash % max;
 };
 
+// var myLimitedArray = LimitedArray();
+// console.log(myLimitedArray);
+// myLimitedArray.set('key', 'adele');
+// console.log(myLimitedArray.storage);
 /*
  * Complexity: What is the time complexity of the above functions?
  */
