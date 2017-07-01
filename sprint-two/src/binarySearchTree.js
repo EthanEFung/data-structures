@@ -45,29 +45,37 @@ searchMethods.insert = function(value) {
 searchMethods.contains = function (val) {
   var determineTheValueLeftOrRight = function(treeValue, val) {
     return treeValue > val ? 'left' : 'right';
-  };  
+  };
 
   if (this.value === val) {
     return true;
   } else {
-
     var direction = determineTheValueLeftOrRight(this.value, val);
-    console.log('val ', val, ' for this', this, ' is Null ', isTheDirectionNull(this, direction));
     if (isTheDirectionNull(this, direction)) {
       return false;
     } else {
       return this[direction].contains(val);
     }
   }
-  //determine if the current tree has the value
-  //else
-  //determine the values direction
-  //if the direction is null return false
-  //else 
-  //run contains on the direction 
 };
 
-searchMethods.depthFirstLog = function () {};
+searchMethods.depthFirstLog = function (callback) {
+  var runCbOnTree = function(tree, callback) {
+    callback(tree.value);
+  };
+  
+  runCbOnTree(this, callback);
+
+  if (this.left !== null) {
+    this.left.depthFirstLog(callback);
+  } 
+
+  if (this.right !== null) {
+    this.right.depthFirstLog(callback);
+  }
+
+
+};
 
 
 
